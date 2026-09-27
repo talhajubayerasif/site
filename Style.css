@@ -68,18 +68,18 @@ img { max-width: 100%; display: block; }
     gap: 28px;
     font-size: 0.85rem;
     letter-spacing: 0.02em;
-    color: var(--ink-faint);
+    color: var(--ink);
 }
 
 .top-links a {
-    color: var(--ink-dim);
+    color: var(--ink);
     transition: color 0.25s ease;
     cursor: pointer;
 }
 
 .top-links a:hover,
 .top-links a:focus-visible {
-    color: var(--ink);
+    color: var(--ink-faint);
 }
 
 /* =========================================================
@@ -112,7 +112,7 @@ img { max-width: 100%; display: block; }
     right: 0;
     bottom: 0;
     height: 1px;
-    background: var(--ink);
+    background: var(--ink-faint);
     transform: scaleX(0);
     transform-origin: right;
     transition: transform 0.3s ease;
