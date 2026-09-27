@@ -52,6 +52,8 @@ backToTopButton.addEventListener("click", () => {
 });
 
 // Reusable lightbox: wires up a grid of thumbnails to an overlay with
+// prev/next/close controls and keyboard navigation. Used for both the
+// Photography gallery and the Travel gallery below.
 function initLightbox({ itemSelector, overlayId, imgId, closeId, prevId, nextId, captionId }) {
     const items = document.querySelectorAll(itemSelector);
     const overlay = document.getElementById(overlayId);
