@@ -64,7 +64,8 @@ function initLightbox({ itemSelector, overlayId, imgId, closeId, prevId, nextId,
     const prevBtn = document.getElementById(prevId);
     const nextBtn = document.getElementById(nextId);
     const captionEl = captionId ? document.getElementById(captionId) : null;
-    const sources = Array.from(items).map(el => el.src);
+    // Thumbnails are <img> (use src); other triggers, like certificate badges, carry data-src.
+    const sources = Array.from(items).map(el => el.dataset.src || el.src);
 
     // Caption data can live on the image itself (data-loc/data-desc, used by
     // Travel) or on a wrapping element (data-caption, used by Photography).
@@ -82,6 +83,7 @@ function initLightbox({ itemSelector, overlayId, imgId, closeId, prevId, nextId,
 
     function render() {
         img.src = sources[currentIndex];
+        img.alt = captions[currentIndex].loc || '';
         if (captionEl) {
             const { loc, desc } = captions[currentIndex];
             captionEl.innerHTML = (loc ? `<span class="cap-loc">${loc}</span>` : '')
@@ -182,4 +184,15 @@ initLightbox({
     prevId: 'lightboxPrevTravel',
     nextId: 'lightboxNextTravel',
     captionId: 'lightboxCaptionTravel',
+});
+
+// Certifications: clicking a badge opens the certificate image
+initLightbox({
+    itemSelector: '.cert-badge',
+    overlayId: 'lightboxCert',
+    imgId: 'lightboxImgCert',
+    closeId: 'lightboxCloseCert',
+    prevId: 'lightboxPrevCert',
+    nextId: 'lightboxNextCert',
+    captionId: 'lightboxCaptionCert',
 });

@@ -456,52 +456,53 @@ section:nth-of-type(even) {
 }
 
 /* =========================================================
-   WRITING (blog) — list rows
+   CERTIFICATIONS — badge list
 ========================================================= */
-.writing-list {
+.cert-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
     max-width: 900px;
-}
-
-.writing-row {
-    position: relative;
     display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 24px;
-    padding: 26px 20px;
-    border-bottom: 1px solid var(--line-soft);
-    transition: background-color 0.25s ease;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
-.writing-row:hover {
+.cert-badge {
+    font: inherit;
+    color: inherit;
+    background: transparent;
+    text-align: left;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 8px;
+    padding: 7px 16px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    line-height: 1.4;
+    transition: border-color 0.25s ease, background-color 0.25s ease;
+}
+
+.cert-badge:hover {
+    border-color: var(--accent-soft);
     background: rgba(245, 242, 236, 0.03);
 }
 
-.writing-main h3 {
+.cert-badge:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
+
+.cert-name {
     font-family: var(--font-body);
     font-weight: 600;
-    font-size: 1.15rem;
+    font-size: 0.9rem;
     color: var(--ink);
 }
 
-.writing-main .writing-meta {
-    display: block;
-    margin-top: 6px;
-    font-style: italic;
-    font-size: 0.9rem;
-    color: var(--ink-faint);
-}
-
-.writing-main p {
-    margin-top: 14px;
-    max-width: 60ch;
-    text-align: left;
-}
-
-.writing-year {
-    flex-shrink: 0;
-    font-size: 0.85rem;
-    letter-spacing: 0.08em;
+.cert-meta {
+    font-size: 0.8rem;
     color: var(--ink-faint);
 }
 
